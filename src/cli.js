@@ -6,11 +6,11 @@ import constants from './constants';
 import { convert } from './main';
 
 function parseArgumentsIntoOptions(rawArgs) {
-	program.version('1.0.1');
+	program.version('1.0.2');
 
 	program
-		.option('-a, --action <action>', 'sets the required convert action')
-		.addOption(new Option('-v, --value <value>', 'sets the value to convert').choices(['htr', 'rth']))
+		.addOption(new Option('-a, --action <action>', 'sets the required convert action').choices(['htr', 'rth']))
+		.option('-v, --value <value>', 'sets the value to convert')
 		.helpOption('-h, --help', 'get more information about the options')
 		.addHelpText(
 			'after',

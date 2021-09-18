@@ -1,6 +1,6 @@
 {
 	"name": "hexchange",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A CLI to convert between hex and rgb values",
 	"repository": {
 		"type": "git",
