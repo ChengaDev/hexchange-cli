@@ -6,6 +6,7 @@ export const HEX_MISSING_HAS_ERR_MSG = 'Wrong hex input format - missing hash!';
 export const HEX_LENGTH_ERR_MSG = 'Wrong hex input format - invalid length!';
 export const RGB_WRONG_INPUT_FORMAT = 'Wrong rgb input format!';
 export const INVALID_CONVERSION_ACTION = 'Invalid conversion action!';
+export const MISSING_CONVERT_VALUE = 'Please insert a value to convert';
 
 export const RGB_TO_HEX = 'rth';
 export const RGB_TO_HEX_PRETTY = 'RGB to Hex';

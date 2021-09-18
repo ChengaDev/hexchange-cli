@@ -1,36 +1,29 @@
 #!/usr/bin/env node
 
-import arg from 'arg';
+import { Option, program } from 'commander';
 import inquirer from 'inquirer';
+import constants from './constants';
 import { convert } from './main';
 
 function parseArgumentsIntoOptions(rawArgs) {
-	const args = arg(
-		{
-			'--action': String,
-			'--value': String,
-			'-a': '--action',
-			'-v': '--value'
-		},
-		{
-			argv: rawArgs.slice(2)
-		}
-	);
+	program.version('1.0.1');
 
-	return {
-		action: args['--action'] || false,
-		value: args['--value'] || false
-	};
+	program
+		.option('-a, --action <action>', 'sets the required convert action')
+		.addOption(new Option('-v, --value <value>', 'sets the value to convert').choices(['htr', 'rth']))
+		.helpOption('-h, --help', 'get more information about the options')
+		.addHelpText(
+			'after',
+			`Example calls: \n\t$ hexchange -V\n\t$ hexchange -a <action> -v <value>\n\t$ hexchange --help\n`
+		);
+
+	program.parse(process.argv);
+
+	return program.opts();
 }
 
 export async function promptForMissingOptions(options) {
-	const defaultAction = 'RGB to Hex';
-	if (options.action) {
-		return {
-			...options,
-			actions: options.action || defaultAction
-		};
-	}
+	const defaultAction = constants.HEX_TO_RGB_PRETTY;
 
 	const questions = [];
 	if (!options.action) {
@@ -38,7 +31,7 @@ export async function promptForMissingOptions(options) {
 			type: 'list',
 			name: 'action',
 			message: 'Please select which coversion you need',
-			choices: ['Hex to RGB', 'RGB to Hex'],
+			choices: [constants.HEX_TO_RGB_PRETTY, constants.RGB_TO_HEX_PRETTY],
 			default: defaultAction
 		});
 	}

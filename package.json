@@ -1,7 +1,11 @@
 {
-	"name": "@chengadev/hexchange",
-	"version": "1.0.0",
+	"name": "hexchange",
+	"version": "1.0.1",
 	"description": "A CLI to convert between hex and rgb values",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ChengaDev/hexchange-cli.git"
+	},
 	"main": "src/index.js",
 	"bin": {
 		"hexchange": "bin/hexchange",
@@ -32,8 +36,8 @@
 	"author": "Chen Gazit",
 	"license": "ISC",
 	"dependencies": {
-		"arg": "^5.0.1",
 		"chalk": "^4.1.2",
+		"commander": "^8.2.0",
 		"esm": "^3.2.25",
 		"inquirer": "^8.1.5"
 	},
