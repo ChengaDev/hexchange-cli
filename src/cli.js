@@ -6,7 +6,7 @@ import constants from './constants';
 import { convert } from './main';
 
 function parseArgumentsIntoOptions(rawArgs) {
-	program.version('1.0.2');
+	program.version('1.0.3');
 
 	program
 		.addOption(new Option('-a, --action <action>', 'sets the required convert action').choices(['htr', 'rth']))
