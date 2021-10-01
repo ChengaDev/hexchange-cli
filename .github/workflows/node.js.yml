@@ -9,9 +9,6 @@ on:
     pull_request:
         branches: [main]
 
-env:
-    SPECTRAL_DSN: ${{ secrets.SPECTRAL_DSN }}
-
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -33,6 +30,8 @@ jobs:
     scan:
         name: Spectral
         runs-on: ubuntu-latest
+        env:
+            SPECTRAL_DSN: ${{ secrets.SPECTRAL_DSN }}
         steps:
             - uses: actions/checkout@v2
             - name: Install
